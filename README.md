@@ -2,16 +2,6 @@
 
 This repository contains the implementation of the Fetch Rewards coding exercise. The project demonstrates efficient solutions to the given task while adhering to best coding practices.
 
-## Table of Contents
-- [Overview](#overview)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Future Improvements](#future-improvements)
-- [Contact](#contact)
-
 ## Overview
 This project is a solution to a coding exercise provided by Fetch Rewards. The exercise aims to evaluate problem-solving skills, code readability, and understanding of software development principles.
 
