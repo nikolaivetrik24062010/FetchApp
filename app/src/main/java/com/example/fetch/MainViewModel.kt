@@ -20,11 +20,11 @@ class MainViewModel : ViewModel() {
                 _uiState.value = _uiState.value.copy(isLoading = true)
                 val items = RetrofitClient.api.getItems()
                     .filter { !it.name.isNullOrBlank() }
-                    .sortedWith(compareBy({ it.listId }, { it.name })) 
+                    .sortedWith(compareBy({ it.listId }, { it.name }))
 
                 _uiState.value = UiState(data = items, isLoading = false)
             } catch (e: Exception) {
-                _uiState.value = UiState(error = "Ошибка загрузки данных")
+                _uiState.value = UiState(error = "Error fetching items")
             }
         }
     }
