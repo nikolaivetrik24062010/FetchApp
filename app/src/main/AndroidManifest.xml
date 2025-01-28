@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Fetch"
         tools:targetApi="31">
         <activity
-            android:name=".ui.theme.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Fetch">

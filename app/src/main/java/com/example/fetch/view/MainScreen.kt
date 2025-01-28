@@ -1,4 +1,4 @@
-package com.example.fetch.ui.theme
+package com.example.fetch.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,15 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.fetch.MainViewModel
+import com.example.fetch.viewmodel.MainViewModel
+import com.example.fetch.viewmodel.UiState
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = viewModel()) {
+fun MainScreen(viewModel: MainViewModel) {
     val state = viewModel.uiState.collectAsState()
 
-    when {
-        state.value.isLoading -> {
+    when (val currentState = state.value) {
+        is UiState.Loading -> {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxSize()
@@ -26,24 +26,24 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
                 CircularProgressIndicator()
             }
         }
-        state.value.error.isNotEmpty() -> {
+        is UiState.Error -> {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxSize()
             ) {
                 Text(
-                    text = state.value.error,
+                    text = currentState.message,
                     style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center
                 )
             }
         }
-        else -> {
+        is UiState.Success -> {
             LazyColumn(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(state.value.data) { item ->
+                items(currentState.data) { item ->
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -51,8 +51,14 @@ fun MainScreen(viewModel: MainViewModel = viewModel()) {
                         Column(
                             modifier = Modifier.padding(16.dp)
                         ) {
-                            Text(text = "List ID: ${item.listId}", style = MaterialTheme.typography.titleSmall)
-                            Text(text = "Name: ${item.name}", style = MaterialTheme.typography.bodyMedium)
+                            Text(
+                                text = "List ID: ${item.listId}",
+                                style = MaterialTheme.typography.titleSmall
+                            )
+                            Text(
+                                text = "Name: ${item.name}",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
                         }
                     }
                 }

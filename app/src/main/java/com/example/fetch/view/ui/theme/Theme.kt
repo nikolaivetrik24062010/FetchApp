@@ -1,4 +1,4 @@
-package com.example.fetch.ui.theme
+package com.example.fetch.view.ui.theme
 
 import android.app.Activity
 import android.os.Build
