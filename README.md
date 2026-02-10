@@ -1,13 +1,18 @@
-# Fetch Rewards Coding Exercise
+# Android AppSec Coding Exercise
 
-This repository contains the implementation of the Fetch Rewards coding exercise. The project demonstrates efficient solutions to the given task while adhering to best coding practices.
+This repository contains the implementation of the Android Application Security (AppSec) coding exercise. The project demonstrates secure and efficient solutions while adhering to AppSec best practices.
 
 ## Overview
-This project is a solution to a coding exercise provided by Fetch Rewards. The exercise aims to evaluate problem-solving skills, code readability, and understanding of software development principles.
+This project is a solution to a coding exercise focused on Android security. The exercise evaluates skills in:
+* secure coding and threat mitigation
+* proper handling of sensitive data
+* secure network communication
+* code readability and maintainability
+* understanding of software development and AppSec principles
 
 ## Requirements
 - [Android Studio](https://developer.android.com/studio) (for Android projects)
-- Java or Kotlin development experience
+- Kotlin development experience
 - Internet connection (for dependency resolution)
 
 ## Installation
