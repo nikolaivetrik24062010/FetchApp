@@ -1,21 +1,52 @@
-# Android AppSec Coding Exercise
+# Fetch AppSec Coding Exercise – Secure Android Implementation
 
-This repository contains the implementation of the Android Application Security (AppSec) coding exercise. The project demonstrates secure and efficient solutions while adhering to AppSec best practices.
+This repository contains the implementation of a technical assessment for the **Android Engineer** position at **Fetch**. Beyond meeting the functional requirements, this project serves as an **AppSec Coding Exercise**, demonstrating production-grade security hardening and resilient architecture.
 
-## Overview
-This project is a solution to a coding exercise focused on Android security. The exercise evaluates skills in:
-* secure coding and threat mitigation
-* proper handling of sensitive data
-* secure network communication
-* code readability and maintainability
-* understanding of software development and AppSec principles
+---
 
-## Requirements
-- [Android Studio](https://developer.android.com/studio) (for Android projects)
-- Kotlin development experience
-- Internet connection (for dependency resolution)
+## 🔍 Exercise Overview & AppSec Focus
+The goal of this project was to build a robust data-fetching application while strictly adhering to **Security-by-Design** principles. It evaluates expertise in:
 
-## Installation
-1. Clone the repository:
+* **Secure Coding:** Mitigating common vulnerabilities found in the OWASP Mobile Top 10.
+* **Threat Mitigation:** Proper handling of third-party SDKs and untrusted remote data.
+* **Sensitive Data Protection:** Secure memory management and data isolation.
+* **Resilient Networking:** Implementing secure communication channels.
+
+
+
+---
+
+## 🔐 Key Security Implementations
+
+### 📡 Secure Network Communication
+- **TLS Enforcement:** All remote data fetching is strictly enforced over **HTTPS** via a custom Network Security Configuration to prevent Man-in-the-Middle (MitM) attacks.
+- **Input Sanitization:** Implemented strictly-typed JSON parsing (GSON) to prevent type-confusion attacks and ensure data integrity from remote endpoints.
+
+### 🛡️ Application Hardening (Static Analysis)
+- **Obfuscation & R8:** Optimized with **ProGuard/R8** rules to protect business logic, strip sensitive metadata, and hinder reverse engineering.
+- **Manifest Security:** Explicitly disabled `android:allowBackup` and non-essential exported components to reduce the application's attack surface.
+
+### 🛠️ Runtime Resilience
+- **State Management:** Utilized **StateFlow** and **ViewModel** for lifecycle-aware data handling, ensuring that data is cleared from memory when no longer needed.
+- **Privacy-Preserving Logging:** Integrated a release-build tree that automatically strips all debug logs to prevent sensitive information leakage in production environments.
+
+---
+
+## 🏗️ Architecture & Technical Stack
+
+The project follows the **MVVM (Model-View-ViewModel)** pattern combined with **Clean Architecture** to ensure a clear separation of concerns.
+
+- **Language:** Kotlin & Coroutines
+- **Networking:** Retrofit2 & GSON
+- **UI:** Material3 & Adaptive Layouts
+- **Audit Tools used for validation:** MobSF, Jadx-GUI, Burp Suite.
+
+
+
+---
+
+## 🚀 Installation & Security Review
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/nikolaivetrik24062010/FetchApp.git
+   git clone [https://github.com/nikolaivetrik24062010/FetchApp.git](https://github.com/nikolaivetrik24062010/FetchApp.git)
